@@ -5,7 +5,7 @@
 	* has_one :order
 	* string :email
 	* string :name
-	* bool :admin
+	* role :admin
 * Item
 	* has_many :order_items
 	* string :name
@@ -14,9 +14,9 @@
 	* decimal :price
 	* decimal :cost
 * Order
-	* belongs_to :customer
+	* belongs_to :user
 	* has_many :order_items
-	* enum :status => "open", "processing", "delivered"
+	* stateflow :status => "open", "processing", "delivered"
 	* bool :payed, :default => :false
 * OrderItem
 	* belongs_to :order
