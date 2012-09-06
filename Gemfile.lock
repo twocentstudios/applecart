@@ -36,6 +36,7 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    bootstrap-sass (2.0.4.2)
     builder (3.0.0)
     chunky_png (1.2.6)
     coffee-rails (3.2.2)
@@ -171,6 +172,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 2.0.4.1)
   coffee-rails (~> 3.2.1)
   compass-rails
   country_select
