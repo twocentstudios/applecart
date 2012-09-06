@@ -18,6 +18,9 @@ class Order < ActiveRecord::Base
       transitions :from => :open, :to => :processing
       transitions :from => :processing, :to => :delivered
     end
+    
   end
+
+  attr_accessible :payed, :state
 end
 

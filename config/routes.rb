@@ -1,6 +1,16 @@
 Applecart::Application.routes.draw do
   devise_for :users
 
+  resources :items, :only => [:index, :show]
+
+  resources :orders, :only => [:show, :edit, :update] do
+    member do
+      get 'my'
+    end
+  end
+
+  resources :users, :only => [:show]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
