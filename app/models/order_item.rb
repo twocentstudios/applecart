@@ -6,8 +6,14 @@ class OrderItem < ActiveRecord::Base
     quantity    :integer, :validates => :presence
   end
 
+  attr_accessible :quantity
+
   def total
   	item.price * quantity
+  end
+
+  def total_cost
+  	item.cost * quantity
   end
   
 end

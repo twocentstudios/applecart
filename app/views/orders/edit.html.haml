@@ -1,0 +1,5 @@
+.header 
+	%h1= edit_order_title(@order)
+	%p= "this order is " + @order.state
+
+= render 'form'

@@ -13,6 +13,15 @@
 				%td =
 				%td= number_to_currency(order_item.total)
 
-#total.well
+%hr
+
+#total
 	%h2= "Total: #{number_to_currency(@order.total)}"
 	= paid(@order)
+
+%hr
+
+#actions
+	= edit_action(@order)
+	= submit_action(@order)
+	= order_paid_action(@order)
