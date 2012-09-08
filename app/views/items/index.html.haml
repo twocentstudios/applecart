@@ -12,5 +12,6 @@
 			%h2= item.name
 			%p= number_to_currency(item.price)
 			%p= item.description
-			= link_to 'Add to cart', '#', :class => 'btn btn-primary'
+			= link_to 'Add to cart', item_add_to_order_path(item), :class => 'btn btn-primary', :method => 'POST', :remote => true
+			%div{:class => "flash-item", :id => "flash-item-#{item.id}"}
 		

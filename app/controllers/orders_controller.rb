@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
 
 	def my
 		@order = current_user.order
-		@order ||= current_user.order.create!
 	end
 
 	def show
