@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-	before_filter :authenticate!
+	before_filter :authenticate_user!
 
 	def my
 		@order = current_user.order
