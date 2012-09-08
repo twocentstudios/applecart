@@ -1,4 +1,4 @@
-class OrderController < ApplicationController
+class OrdersController < ApplicationController
 	before_filter :authenticate!
 
 	def my
@@ -22,7 +22,7 @@ class OrderController < ApplicationController
 	def update
 
 	end
-	
+
 	private
 
 	def owner_or_admin(order)
