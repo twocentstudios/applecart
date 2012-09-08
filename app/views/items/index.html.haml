@@ -1,4 +1,6 @@
-%h1.header Shop for Apples
+.header 
+	%h1 Shop for Apples
+	%p Don't worry, they're all delicious
 
 - @items.each do |item|
 	%hr
@@ -8,7 +10,7 @@
 				= image_tag "http://placekitten.com/300/300", :class => 'img-rounded'
 		.span6
 			%h2= item.name
-			%p= "$#{item.price}"
+			%p= number_to_currency(item.price)
 			%p= item.description
 			= link_to 'Add to cart', '#', :class => 'btn btn-primary'
 		

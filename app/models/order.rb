@@ -21,7 +21,12 @@ class Order < ActiveRecord::Base
     
   end
 
-  attr_accessible :payed, :state
   attr_accessible :paid, :state
+
+  def total
+    total = 0
+    order_items.map{ |oi| total += oi.total}
+    return total
+  end
 end
 

@@ -5,5 +5,10 @@ class OrderItem < ActiveRecord::Base
   structure do
     quantity    :integer, :validates => :presence
   end
+
+  def total
+  	item.price * quantity
+  end
+  
 end
 

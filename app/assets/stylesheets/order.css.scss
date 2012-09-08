@@ -1,3 +1,22 @@
 // Place all the styles related to the Order controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'bootstrap';
+
+#order-list {
+	margin-top: 30px;
+}
+
+#total {
+	text-align: right;
+	padding-right: 40px;
+}
+
+.paid {
+	color: $green;
+}
+
+.not-paid {
+	color: $red;
+}

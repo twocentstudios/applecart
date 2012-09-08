@@ -11,5 +11,6 @@ class Item < ActiveRecord::Base
   end
 
   attr_accessible :name, :description, :price
+
 end
 
