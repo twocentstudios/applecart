@@ -4,12 +4,14 @@ Applecart::Application.routes.draw do
   resources :items, :only => [:index, :show]
 
   resources :orders, :only => [:show, :edit, :update] do
-    member do
+    collection do
       get 'my'
     end
   end
 
   resources :users, :only => [:show]
+
+  root :to => 'items#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
