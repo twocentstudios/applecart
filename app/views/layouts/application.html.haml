@@ -1,10 +1,16 @@
 !!!
 %html
-  %head
-    %title applecart
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
-    = csrf_meta_tags
-
-  %body{:class => controller_name}
-    = yield
+	%head
+		%title AppleCart
+		= stylesheet_link_tag    'application', media: 'all'
+		= javascript_include_tag 'application'
+		= csrf_meta_tags
+	%body{:class => controller_name}
+		= render 'layouts/header'
+		.container-fluid
+			%section
+				- flash.each do |key, value|
+					%div{:class => "alert alert-#{key}"}= "#{value}"
+				= yield
+			= render 'layouts/footer'
+		%code= debug(params) if Rails.env.development?

@@ -1,0 +1,16 @@
+%header
+	.navbar
+		.navbar-inner
+			.container
+				= link_to "AppleCart", root_path, :class => "brand"
+				- if user_signed_in?
+					%ul.nav
+						%li= link_to "Apples", items_path
+						%li= link_to "Cart", my_orders_path
+				%ul.sessions.nav.pull-right
+					- if user_signed_in?
+						%li= link_to current_user.name, edit_user_registration_path(current_user)
+						%li= link_to "Sign out", destroy_user_session_path, :method => 'delete'
+					- else
+						%li= link_to "Sign up to order", new_user_registration_path
+						%li= link_to "Sign in", new_user_session_path
