@@ -54,3 +54,5 @@ gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem "simple_form"
 gem "country_select"
 gem "bootstrap-sass", "~> 2.0.4.1"
+gem "thin"
+gem 'quiet_assets', :group => :development
