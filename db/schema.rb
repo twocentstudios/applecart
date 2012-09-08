@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120906005007) do
+ActiveRecord::Schema.define(:version => 20120908164752) do
 
   create_table "items", :force => true do |t|
     t.string  "name",                            :null => false
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20120906005007) do
 
   create_table "orders", :force => true do |t|
     t.integer "user_id",                    :null => false
-    t.boolean "payed",   :default => false, :null => false
     t.string  "state"
+    t.boolean "paid",    :default => false, :null => false
   end
 
   add_index "orders", ["user_id"], :name => "index_orders_on_user_id"

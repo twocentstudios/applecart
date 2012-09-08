@@ -16,8 +16,8 @@
 * Order
 	* belongs_to :user
 	* has_many :order_items
-	* stateflow :status => "open", "processing", "delivered"
-	* bool :payed, :default => :false
+	* stateflow :state => "open", "processing", "delivered"
+	* bool :paid, :default => :false
 * OrderItem
 	* belongs_to :order
 	* belongs_to :item

@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   has_many :order_items
 
   structure do
-    payed       false
+    paid        false
     state       :string
   end
 
@@ -22,5 +22,6 @@ class Order < ActiveRecord::Base
   end
 
   attr_accessible :payed, :state
+  attr_accessible :paid, :state
 end
 
