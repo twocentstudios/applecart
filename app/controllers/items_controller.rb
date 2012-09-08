@@ -23,11 +23,11 @@ class ItemsController < ApplicationController
     end
 
     if @order_item.save!
-      @key = 'success'
-      @value = "You now have #{@order_item.quantity} of the #{@item.name} in your cart"
+      @flash_key = 'success'
+      @flash_value = "You now have #{@order_item.quantity} of the #{@item.name} in your cart"
     else
-      @key = 'error'
-      @value = "There was an error and the apple could not be added to your cart"
+      @flash_key = 'error'
+      @flash_value = "There was an error and the apple could not be added to your cart"
     end
 
     respond_to do |format|
