@@ -1,0 +1,18 @@
+#order-list.tablediv
+	%table.table.table-striped
+		%tr
+			- ['Line','Apple','Qty','','Price','','Line Total'].each do |header|
+				%th= header
+		- @order.order_items.each_with_index do |order_item, i|			
+			%tr
+				%td= i + 1
+				%td= order_item.item.name
+				%td= order_item.quantity
+				%td ×
+				%td= number_to_currency(order_item.item.price)
+				%td =
+				%td= number_to_currency(order_item.total)
+
+#total.well
+	%h2= "Total: #{number_to_currency(@order.total)}"
+	= paid(@order)
