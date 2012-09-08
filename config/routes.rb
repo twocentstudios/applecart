@@ -9,6 +9,7 @@ Applecart::Application.routes.draw do
     collection do
       get 'my'
     end
+    post 'submit_order'
   end
 
   resources :users, :only => [:show]

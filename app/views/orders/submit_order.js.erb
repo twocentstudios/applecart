@@ -1,0 +1,4 @@
+$('#actions').hide()
+$('#order-status').text("this order is <%=@order.state%>")
+$('#flash-modal').html("<%= escape_javascript(render('orders/submit_order_flash')) %>");
+$('#flash-modal').modal();

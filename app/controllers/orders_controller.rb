@@ -32,12 +32,26 @@ class OrdersController < ApplicationController
 			@order.order_items.each do |oi|
 				oi.destroy if oi.quantity == 0
 			end
+	# *** AJAX *** 
 
-			redirect_to @order, :flash => { :success => "Successfully updated order"}
-		else
-			flash.now[:error] = "Error updating order"
-			render 'edit'
+	def submit_order
+		@order = Order.find(params[:order_id])
+		
+		unless owner_or_admin(@order)
+			@flash_key = 'error'
+			@flash_value = "Order could not be submitted."
 		end
+
+		if @order.open?
+			@order.next_state!
+			@flash_key = 'success'
+			@flash_value = "Order submitted successfully. Please submit your payment in person as soon as possible."
+		else
+			@flash_key = 'error'
+			@flash_value = "Order could not be submitted."
+		end
+
+		respond_to { |format| format.js }
 	end
 
 	# *** admin ***

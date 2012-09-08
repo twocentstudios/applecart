@@ -14,9 +14,14 @@ class Order < ActiveRecord::Base
 
     state :open, :processing, :delivered
 
-    event :next_status do
+    event :next_state do
       transitions :from => :open, :to => :processing
       transitions :from => :processing, :to => :delivered
+      transitions :from => :delivered, :to => :open
+    end
+
+    event :reset do
+      transitions :from => [:open, :processing, :delivered], :to => :open
     end
     
   end

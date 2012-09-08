@@ -1,5 +1,5 @@
 .header 
 	%h1 My Order
-	%p= "this order is " + @order.state
+	%p#order-status= "this order is " + @order.state
 
 = render 'order'
