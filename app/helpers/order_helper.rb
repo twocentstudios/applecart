@@ -1,5 +1,11 @@
 module OrderHelper
 
+	def empty_order(order)
+		if order.order_items.empty?
+			render 'empty_order'
+		end
+	end
+
 	def paid(order)
 		if order.paid?
 			return content_tag 'h3', "paid", :class => 'paid'
@@ -9,14 +15,14 @@ module OrderHelper
 	end
 
 	def edit_action(order)
-		if order.state == 'open'
+		if order.open? && order.order_items.present?
 			return link_to 'Edit Order', edit_order_path(@order), :class => 'btn btn-large btn-info'
 		end
 	end
 
 	def submit_action(order)
-		if order.state == 'open'
-			return link_to 'Submit Order', '#', :class => 'btn btn-large btn-primary'
+		if order.open? && order.order_items.present?
+			return link_to 'Submit Order', order_submit_order_path(order), :class => 'btn btn-large btn-primary', :method => 'POST', :remote => true
 		end
 	end
 
