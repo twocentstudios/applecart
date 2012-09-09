@@ -57,7 +57,7 @@ class OrdersController < ApplicationController
 		if owner_or_admin(@order) && @order.open?
 			@order.next_state
 			if @order.save
-				@flash = {:success => "Order submitted successfully. Please submit your payment in person as soon as possible."}
+				@flash = {:success => "Order submitted successfully. Please submit your payment in person to Jen Galvin as soon as possible.\n\nMessage from Jen: Thank you for supporting me in my efforts in Making Strides Against Breast Cancer!"}
 			end
 		end
 
