@@ -1,12 +1,13 @@
 class ItemsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :index
 
   def index
-    @items = Item.all
-  end
-
-  def show
-    @item = Item.find(params[:id])
+    if user_signed_in?
+      @items = Item.all
+      render 'index'
+    else
+      redirect_to page_path('home')
+    end
   end
 
   def add_to_order
