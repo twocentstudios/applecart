@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
 			if @order.update_attributes(params[:order])
 				
 				@order.order_items.each do |oi|
-					oi.destroy if oi.quantity == 0
+					oi.destroy if oi.quantity <= 0
 				end
 
 				redirect_to @order, :flash => { :success => "Successfully updated order"}
