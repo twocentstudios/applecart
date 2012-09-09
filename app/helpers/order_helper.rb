@@ -8,9 +8,9 @@ module OrderHelper
 
 	def paid(order)
 		if order.paid?
-			return content_tag 'h3', "paid", :class => 'paid'
+			return content_tag 'h3', "paid", :class => 'paid', :id => 'paid-text'
 		else
-			return content_tag 'h3', "not paid", :class => 'not-paid'
+			return content_tag 'h3', "not paid", :class => 'not-paid', :id => 'paid-text'
 		end
 	end
 
@@ -29,7 +29,9 @@ module OrderHelper
 	def order_paid_action(order)
 		if current_user.is_admin?
 			if order.paid?
-				return link_to 'Payment Received', '#', :class => 'btn btn-large btn-success'
+				return link_to 'Payment Received', order_toggle_paid_path(order), :class => 'btn btn-large btn-success', :id => 'btn-paid', :method => 'POST', :remote => true
+			else
+				return link_to 'Payment Not Received', order_toggle_paid_path(order), :class => 'btn btn-large btn-danger', :id => 'btn-paid', :method => 'POST', :remote => true
 			end
 		end
 	end
@@ -44,9 +46,9 @@ module OrderHelper
 
 	def paid_toggle_cell(order)
 		if order.paid
-			return content_tag 'td', link_to("yes", '#', :class => 'btn btn-small'), :class => 'cell-paid'
+			return content_tag 'td', link_to("yes", order_toggle_paid_path(order), :class => 'btn btn-small', :id => "btn-paid-#{order.id}", :title => "toggle paid", :method => 'POST', :remote => true), :class => 'cell-paid', :id => "cell-paid-#{order.id}"
 		else
-			return content_tag 'td', link_to("no", '#', :class => 'btn btn-small'), :class => 'cell-not-paid'
+			return content_tag 'td', link_to("no", order_toggle_paid_path(order), :class => 'btn btn-small', :title => "toggle paid", :id => "btn-paid-#{order.id}", :method => 'POST', :remote => true), :class => 'cell-not-paid', :id => "cell-paid-#{order.id}"
 		end
 	end
 end

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 	before_filter :authenticate_user!
-	before_filter :authenticate_admin, :only => :index
+	before_filter :authenticate_admin, :only => [:index, :toggle_paid]
 
 	def my
 		@order = current_user.order
@@ -54,19 +54,16 @@ class OrdersController < ApplicationController
 	def submit_order
 		@order = Order.find(params[:order_id])
 		
-		unless owner_or_admin(@order)
-			@flash_key = 'error'
-			@flash_value = "Order could not be submitted."
+		if owner_or_admin(@order) && @order.open?
+			@order.next_state
+			if @order.save
+				@flash_key = 'success'
+				@flash_value = "Order submitted successfully. Please submit your payment in person as soon as possible."
+			end
 		end
 
-		if @order.open?
-			@order.next_state!
-			@flash_key = 'success'
-			@flash_value = "Order submitted successfully. Please submit your payment in person as soon as possible."
-		else
-			@flash_key = 'error'
-			@flash_value = "Order could not be submitted."
-		end
+		@flash_key ||= 'error'
+		@flash_value ||= "Order could not be submitted."
 
 		respond_to { |format| format.js }
 	end
@@ -77,6 +74,17 @@ class OrdersController < ApplicationController
 		@orders = Order.all
 	end
 
+	def toggle_paid
+		@order = Order.find(params[:order_id])
+		@order.paid = !@order.paid
+		if @order.save
+			@flash = {:success => "Order is now " + (@order.paid ? "paid" : "not paid")}
+		else
+			@flash = {:error => "There was an error changing the paid status"}
+		end
+		respond_to { |format| format.js }
+	end
+
 	private
 
 	def owner_or_admin(order)
@@ -85,7 +93,7 @@ class OrdersController < ApplicationController
 
 	def authenticate_admin
 		unless current_user.is_admin?
-			flash[:error] = "You're not allowed to see this :("
+			flash[:error] = "You're not allowed to do/see this :("
 			redirect_to root_path
 		end
 	end

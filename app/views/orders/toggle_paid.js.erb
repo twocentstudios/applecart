@@ -1,0 +1,16 @@
+<% if @flash[:success].present? %>
+	$('#cell-paid-<%=@order.id%>').toggleClass('cell-paid cell-not-paid');
+	$('#btn-paid').toggleClass('btn-success btn-danger');
+	$('#paid-text').toggleClass('paid not-paid');
+	<% if @order.paid %>
+		$('#btn-paid-<%=@order.id%>').text('yes');
+		$('#btn-paid').text('Payment Received');
+		$('#paid-text').text('paid');
+	<% else %>
+		$('#btn-paid-<%=@order.id%>').text('no');
+		$('#btn-paid').text('Payment Not Received');
+		$('#paid-text').text('not paid');
+	<% end %>
+<% else %>
+	alert("<%=@flash[:error]%>");
+<% end %>

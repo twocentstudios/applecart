@@ -28,7 +28,6 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :order_items
   attr_accessible :order_items_attributes
-  #attr_accessible :paid, :state
 
   def total
     total = 0
