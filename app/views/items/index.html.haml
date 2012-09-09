@@ -7,7 +7,7 @@
 	.row-fluid
 		.span6
 			.pull-right
-				= image_tag "http://placekitten.com/300/300", :class => 'img-rounded'
+				= image_tag item.photo_url, :class => 'img-rounded'
 		.span6
 			%h2= item.name
 			%p= number_to_currency(item.price)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120908164752) do
+ActiveRecord::Schema.define(:version => 20120909193423) do
 
   create_table "items", :force => true do |t|
     t.string  "name",                            :null => false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20120908164752) do
     t.decimal "price",          :default => 0.0, :null => false
     t.decimal "cost",           :default => 0.0, :null => false
     t.string  "item_photo_uid"
+    t.string  "photo_url"
   end
 
   create_table "order_items", :force => true do |t|

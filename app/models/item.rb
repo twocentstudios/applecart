@@ -7,10 +7,11 @@ class Item < ActiveRecord::Base
     description   "This apple has a lot of snickers candy all over it and tastes fantastic.", :validates => :presence
     price         :decimal, :validates => :numericality
     cost          :decimal, :validates => :numericality
-    item_photo_uid     :string
+    item_photo_uid     :string  #dragonfly not used
+    photo_url     :string       #simple url store for hotlinking
   end
 
-  attr_accessible :name, :description, :price
+  attr_accessible :name, :description, :price, :cost, :photo_url
 
 end
 
