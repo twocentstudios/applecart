@@ -41,5 +41,17 @@ class Order < ActiveRecord::Base
     order_items.map{ |oi| total_cost += oi.total_cost }
     return total_cost
   end
+
+  def total_apples
+    total_apples = 0
+    order_items.map{ |oi| total_apples += oi.quantity }
+    return total_apples
+  end
+
+  def self.total
+    total = 0
+    Order.all.map { |o| total += o.total }
+    return total
+  end
 end
 

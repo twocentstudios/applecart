@@ -5,7 +5,7 @@ Applecart::Application.routes.draw do
     post 'add_to_order'
   end
 
-  resources :orders, :only => [:show, :edit, :update] do
+  resources :orders, :only => [:show, :edit, :update, :index] do
     collection do
       get 'my'
     end

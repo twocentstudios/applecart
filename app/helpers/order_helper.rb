@@ -41,4 +41,12 @@ module OrderHelper
 			return "Edit My Order"
 		end
 	end
+
+	def paid_toggle_cell(order)
+		if order.paid
+			return content_tag 'td', link_to("yes", '#', :class => 'btn btn-small'), :class => 'cell-paid'
+		else
+			return content_tag 'td', link_to("no", '#', :class => 'btn btn-small'), :class => 'cell-not-paid'
+		end
+	end
 end

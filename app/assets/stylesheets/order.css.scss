@@ -10,7 +10,7 @@
 	margin-bottom: 40px;
 }
 
-#order-list {
+#order-item-list {
 	margin-top: 30px;
 }
 
@@ -25,4 +25,12 @@
 
 .not-paid {
 	color: $red;
+}
+
+.cell-not-paid {
+	background-color: $errorBackground;
+}
+
+.cell-paid {
+	background-color: $successBackground;
 }

@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
 	before_filter :authenticate_user!
+	before_filter :authenticate_admin, :only => :index
 
 	def my
 		@order = current_user.order
@@ -73,12 +74,19 @@ class OrdersController < ApplicationController
 	# *** admin ***
 
 	def index
-
+		@orders = Order.all
 	end
 
 	private
 
 	def owner_or_admin(order)
 		return current_user.order == order || current_user.is_admin?
+	end
+
+	def authenticate_admin
+		unless current_user.is_admin?
+			flash[:error] = "You're not allowed to see this :("
+			redirect_to root_path
+		end
 	end
 end

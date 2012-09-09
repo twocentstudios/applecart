@@ -1,0 +1,25 @@
+.header
+	%h1 All Orders
+
+#order-list.tablediv
+	%table.table
+		%thead
+			%tr
+				- ['Order ID','Name','# Apples','Order Total','Status','Paid?'].each do |header|
+					%th= header
+		%tbody
+			- @orders.each_with_index do |order, i|
+				%tr
+					%td= order.id
+					%td= link_to order.user.name, order
+					%td= order.total_apples
+					%td= number_to_currency(order.total)
+					%td= order.state
+					= paid_toggle_cell(order)
+
+%hr
+
+#total
+	%h2= "Total of all orders: #{number_to_currency(Order.total)}"
+
+%hr
