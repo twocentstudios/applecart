@@ -1,5 +1,5 @@
 .header 
-	%h1 Shop for Apples
+	%h1 Choose Your Apples
 	%p They're as delicious as they look
 
 - @items.each do |item|
@@ -12,7 +12,7 @@
 			%h2= item.name
 			%p= number_to_currency(item.price)
 			%p= item.description
-			= link_to 'Add to cart', item_add_to_order_path(item), :class => 'btn btn-primary', :method => 'POST', :remote => true
+			= add_apple_action(item, current_user.order)
 			%div{:class => "flash-item", :id => "flash-item-#{item.id}"}
 		
 .footer.well
