@@ -14,7 +14,7 @@
 					%td= link_to order.user.name, order
 					%td= order.total_apples
 					%td= number_to_currency(order.total)
-					%td= order.state
+					= status_toggle_cell(order)
 					= paid_toggle_cell(order)
 
 %hr

@@ -4,6 +4,10 @@
 
 @import 'bootstrap';
 
+$statusOpenBackground: #abc;
+$statusProcessingBackground: #789;
+$statusDeliveredBackground: #456;
+
 #actions {
 	float: right;
 	margin-right: 40px;
@@ -33,4 +37,16 @@
 
 .cell-paid {
 	background-color: $successBackground;
+}
+
+.cell-status-open {
+	background-color: $statusOpenBackground;
+}
+
+.cell-status-processing {
+	background-color: $statusProcessingBackground;
+}
+
+.cell-status-delivered {
+	background-color: $statusDeliveredBackground;
 }

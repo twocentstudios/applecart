@@ -11,6 +11,7 @@ Applecart::Application.routes.draw do
     end
     post 'submit_order'
     post 'toggle_paid'
+    post 'toggle_status'
   end
 
   resources :users, :only => [:show]

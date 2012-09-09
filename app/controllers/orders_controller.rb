@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 	before_filter :authenticate_user!
-	before_filter :authenticate_admin, :only => [:index, :toggle_paid]
+	before_filter :authenticate_admin, :only => [:index, :toggle_paid, :toggle_status]
 
 	def my
 		@order = current_user.order
@@ -57,13 +57,11 @@ class OrdersController < ApplicationController
 		if owner_or_admin(@order) && @order.open?
 			@order.next_state
 			if @order.save
-				@flash_key = 'success'
-				@flash_value = "Order submitted successfully. Please submit your payment in person as soon as possible."
+				@flash = {:success => "Order submitted successfully. Please submit your payment in person as soon as possible."}
 			end
 		end
 
-		@flash_key ||= 'error'
-		@flash_value ||= "Order could not be submitted."
+		@flash ||= {:error => "Order could not be submitted."}
 
 		respond_to { |format| format.js }
 	end
@@ -81,6 +79,17 @@ class OrdersController < ApplicationController
 			@flash = {:success => "Order is now " + (@order.paid ? "paid" : "not paid")}
 		else
 			@flash = {:error => "There was an error changing the paid status"}
+		end
+		respond_to { |format| format.js }
+	end
+
+	def toggle_status
+		@order = Order.find(params[:order_id])
+		@order.next_state
+		if @order.save
+			@flash = {:success => @order.state}
+		else
+			@flash = {:error => "There was an error changing the order  status"}
 		end
 		respond_to { |format| format.js }
 	end

@@ -1,0 +1,11 @@
+<% if @flash[:success].present? %>
+	$('#cell-status-<%=@order.id%>').removeClass('cell-status-open cell-status-processing cell-status-delivered');
+	$('#cell-status-<%=@order.id%>').addClass('cell-status-<%=@flash[:success]%>');
+	//$('#btn-paid').toggleClass('btn-success btn-danger');
+	//$('#paid-text').toggleClass('paid not-paid');
+	$('#btn-status-<%=@order.id%>').text("<%=@flash[:success]%>");
+	//$('#btn-paid').text('Payment Received');
+	//$('#paid-text').text('paid');
+<% else %>
+	alert("<%=@flash[:error]%>");
+<% end %>
