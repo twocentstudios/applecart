@@ -103,7 +103,6 @@ GEM
     json (1.7.5)
     launchy (2.1.2)
       addressable (~> 2.3)
-    libv8 (3.3.10.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -184,8 +183,6 @@ GEM
       sequel (~> 3.20.0)
       sinatra (~> 1.0.0)
     term-ansicolor (1.0.7)
-    therubyracer (0.10.2)
-      libv8 (~> 3.3.10)
     thin (1.4.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -232,7 +229,6 @@ DEPENDENCIES
   sqlite3
   stateflow
   taps
-  therubyracer
   thin
   uglifier (>= 1.0.3)
   will_paginate
