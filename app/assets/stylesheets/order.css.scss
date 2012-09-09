@@ -2,11 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import 'bootstrap';
+// @import 'bootstrap';
+@import 'colors';
 
-$statusOpenBackground: #abc;
-$statusProcessingBackground: #789;
-$statusDeliveredBackground: #456;
+$green: #46a546;
+$red: #9d261d;
+$errorBackground: #f2dede;
+$successBackground: #dff0d8;
+$statusOpenBackground: $ac_dark_pale;
+$statusProcessingBackground: darken($ac_dark_pale, 20%);
+$statusDeliveredBackground: darken($ac_dark_pale, 40%);
 
 #actions {
 	float: right;

@@ -1,0 +1,16 @@
+// 		Colors
+$ac_primary: #FFC3DB;
+$ac_dark_pale: #BF9EAB;
+$ac_dark_bold: #A63F69;
+$ac_mid_pale: #FFD2E4;
+$ac_light_pale: #FFDDEB;
+
+// $bodyBackground: 
+$linkColor: $ac_dark_bold;
+$gridGutterWidth: 10px;
+$heroUnitBackground: lighten($ac_light_pale, 3%);
+$navbarBackground: $ac_dark_bold;
+$navbarBackgroundHighlight: lighten($ac_dark_bold, 10%);
+$navbarText: $ac_light_pale;
+$navbarLinkColor: $navbarText;
+$navbarBrandColor: $navbarText;
