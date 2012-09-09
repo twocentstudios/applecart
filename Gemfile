@@ -7,6 +7,9 @@ gem 'rails', '3.2.3'
 
 gem 'sqlite3', :group => ["development", "test"]
 gem 'pg', :group => :production
+gem 'heroku'
+gem 'taps'
+gem 'foreman'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -40,7 +43,6 @@ gem 'jquery-rails'
 gem "devise"
 gem "easy_roles"
 gem "high_voltage"
-gem "therubyracer"
 gem "compass-rails"
 gem "will_paginate"
 gem "migrant"
