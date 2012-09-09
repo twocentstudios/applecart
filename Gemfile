@@ -5,7 +5,7 @@ gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'sqlite3', :group => ["development", "test"]
 
 
 # Gems used only for assets and not required
@@ -54,5 +54,5 @@ gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem "simple_form"
 gem "country_select"
 gem "bootstrap-sass", "~> 2.0.4.1"
-gem "thin"
+gem "thin", :group => ["development", "test"]
 gem 'quiet_assets', :group => :development
