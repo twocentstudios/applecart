@@ -1,6 +1,6 @@
 .hero-unit
 	%h1 About
 	%p
-		= "AppleCart was created by"
-		= mail_to 'chris@twocentstudios.com', "Chris Trott"
-		= "and is run by Jen Galvin."
+		!= "AppleCart was created by #{mail_to 'chris@twocentstudios.com', 'Chris Trott'} and is run by Jen Galvin."
+	%p
+		!= "AppleCart is hosted by #{link_to 'Heroku', 'http://heroku.com'}, was created with #{link_to 'Ruby on Rails', 'http://rubyonrails.org'}, was designed with #{link_to 'Bootstrap', 'http://twitter.github.com/bootstrap/'}, and its source is hosted on #{link_to 'Github', 'http://github.com/twocentstudios/applecart'}."

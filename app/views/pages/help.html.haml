@@ -1,6 +1,4 @@
 .hero-unit
 	%h1 Help
 	%p
-		= "Please email"
-		= mail_to 'chris@twocentstudios.com', "Chris Trott"
-		= "for questions and concerns about AppleCart."
+		!= "Please email #{mail_to 'chris@twocentstudios.com', 'Chris Trott'} for questions and concerns about AppleCart."
