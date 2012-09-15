@@ -1,4 +1,8 @@
 .hero-unit
-	%h1 Welcome to AppleCart
-	%p= "Support Making Strides Against Breast Cancer by ordering some delicious Rocky Mountain candy apples!"
-	= link_to "Sign up to start ordering!", new_user_registration_path, :class => "btn btn-large btn-primary"
+	.row-fluid
+		.span4
+			= image_tag 'klein_striders.png'
+		.span8
+			%h1 Welcome to AppleCart
+			%p= "Support Making Strides Against Breast Cancer by ordering some delicious Rocky Mountain candy apples!"
+			= link_to "Sign up to start ordering!", new_user_registration_path, :class => "btn btn-large btn-primary"
