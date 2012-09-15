@@ -69,7 +69,13 @@ class OrdersController < ApplicationController
 	# *** admin ***
 
 	def index
-		@orders = Order.all
+		@orders = []
+		@all_orders = Order.all
+		@all_orders.map do |e| 
+			if e.total > 0
+				@orders << e
+			end
+		end
 	end
 
 	def toggle_paid
