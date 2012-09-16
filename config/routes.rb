@@ -14,11 +14,8 @@ Applecart::Application.routes.draw do
     post 'toggle_status'
   end
 
-  resources :admin, :only => [] do
-    collection do
-      get 'dashboard'
-    end
-  end
+  match 'admin/dashboard' => 'admin#dashboard', :via => :get
+  match 'admin/toggle_sale' => 'admin#toggle_sale', :via => :post
 
   resources :users, :only => [:show]
 

@@ -62,3 +62,10 @@
 					%tr
 						%td= item.name
 						%td= item.total
+	.span4
+		%h2
+			%strong Site Status
+		%h4.well
+			Sale is currently
+			= sale_status_badge
+		= sale_status_action

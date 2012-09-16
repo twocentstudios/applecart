@@ -4,5 +4,10 @@ class AdminController < ApplicationController
 	def dashboard
 		@items = Item.all
 	end
+
+	def toggle_sale
+		Settings.sale_enabled = !Settings.sale_enabled
+		redirect_to admin_dashboard_path
+	end
 	
 end
