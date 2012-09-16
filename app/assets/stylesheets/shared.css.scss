@@ -1,10 +1,11 @@
 .header {
-	margin-bottom: 10px;
+	margin: 10px 0;
 }
 
 .header > h1 {
 	font-size: 4em;
-	line-height: 1.5em;
+	margin: 16px 0;
+	line-height: 1em;
 	text-align: center;
 }
 
@@ -21,13 +22,14 @@
 
 .footer > h1 {
 	font-size: 3.5em;
-	line-height: 1.3em;
+	line-height: 1em;
 	text-align: center;
 }
 
 .footer > p {
 	font-size: 1.4em;
 	font-style: italic;
+	margin: 20px 0;
 	line-height: 1em;
 	text-align: center;
 }
