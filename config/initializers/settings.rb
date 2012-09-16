@@ -1,0 +1,1 @@
+Settings.defaults[:sale_enabled] = false
