@@ -103,6 +103,8 @@ GEM
     json (1.7.5)
     launchy (2.1.2)
       addressable (~> 2.3)
+    ledermann-rails-settings (1.2.0)
+      activerecord (>= 2.3)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -217,6 +219,7 @@ DEPENDENCIES
   heroku
   high_voltage
   jquery-rails
+  ledermann-rails-settings
   migrant
   nested_form!
   pg

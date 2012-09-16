@@ -58,3 +58,4 @@ gem "country_select"
 gem "bootstrap-sass", "~> 2.1.0.0" # "~> 2.0.4.1"
 gem "thin", :group => ["development", "test", "production"]
 gem 'quiet_assets', :group => :development
+gem 'ledermann-rails-settings', :require => 'rails-settings'
