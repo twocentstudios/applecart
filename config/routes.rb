@@ -14,6 +14,12 @@ Applecart::Application.routes.draw do
     post 'toggle_status'
   end
 
+  resources :admin, :only => [] do
+    collection do
+      get 'dashboard'
+    end
+  end
+
   resources :users, :only => [:show]
 
   root :to => 'items#index'

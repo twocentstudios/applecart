@@ -13,5 +13,14 @@ class Item < ActiveRecord::Base
 
   attr_accessible :name, :description, :price, :cost, :photo_url
 
+  def total
+    total = 0
+    order_items.map do |oi| 
+      if oi.order.state != 'open'
+        total += oi.quantity
+      end
+    end
+    return total
+  end
 end
 

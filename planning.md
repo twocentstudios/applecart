@@ -32,3 +32,8 @@
 ## in SASS file
 $bootstrap_var: #322;
 @import 'bootstrap'; or 'bootstrap-responsive'
+
+## Decisions
+* orders don't count against totals normally unless they've been submitted (state == processing or state == delivered)
+* orders aren't shown or counted if they are completely empty (apples == 0)
+* item totals don't count items added to open orders

@@ -1,0 +1,64 @@
+.header
+	%h1 Admin
+
+.row-fluid
+	.span4
+		%h2
+			%strong Orders
+			%small= link_to 'view all', orders_path
+		%table.table
+			%tbody
+				%tr
+					%td Number of open orders
+					%td= Order.open.count
+				%tr
+					%td Number of processing orders
+					%td= Order.processing.count
+				%tr
+					%td Number of delivered orders
+					%td= Order.delivered.count
+				%tr
+					%td Total number of orders
+					%td= Order.all_non_empty.count
+	.span4
+		%h2
+			%strong Money
+			%small for non-open orders
+		%table.table
+			%tbody
+				%tr
+					%td Money currently owed to me
+					%td= number_to_currency(Order.money_owed)
+				%tr
+					%td Money already received
+					%td= number_to_currency(Order.money_received)
+				%tr
+					%td Total money
+					%td= number_to_currency(Order.total)
+				%tr
+					%td Money owed to supplier
+					%td= number_to_currency(Order.total_cost)
+	.span4
+		%h2
+			%strong Profit
+		%table.table
+			%tbody
+				%tr
+					%td Total profit
+					%td= number_to_currency(Order.profit)
+
+.row-fluid
+	.span4
+		%h2
+			%strong Items
+			%small totals for non-open orders
+		%table.table
+			%thead
+				%tr
+					%th Name
+					%th Qty
+			%tbody
+				- @items.each do |item|
+					%tr
+						%td= item.name
+						%td= item.total
