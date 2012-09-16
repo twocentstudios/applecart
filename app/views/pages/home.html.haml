@@ -5,4 +5,8 @@
 		.span8
 			%h1 Welcome to AppleCart
 			%p= "Support Making Strides Against Breast Cancer by ordering some delicious Rocky Mountain candy apples!"
-			= link_to "Sign up to start ordering!", new_user_registration_path, :class => "btn btn-large btn-primary"
+			- if Settings.sale_enabled == true
+				= link_to "Sign up to start ordering!", new_user_registration_path, :class => "btn btn-large btn-primary"
+			- else
+				%p AppleCart is closed. If you've placed an order, please sign in to view the status of your order.
+				= link_to "Sign in", new_user_session_path, :class => "btn btn-large btn-primary"

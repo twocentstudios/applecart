@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 	before_filter :authenticate_user!
 	before_filter :authenticate_admin, :only => [:index, :toggle_paid, :toggle_status]
+	before_filter :sale_enabled
 
 	def my
 		@order = current_user.order
@@ -99,5 +100,13 @@ class OrdersController < ApplicationController
 	def owner_or_admin(order)
 		return current_user.order == order || current_user.is_admin?
 	end
+
+	def sale_enabled
+    if Settings.sale_enabled == false &&
+    	!current_user.is_admin? &&
+	    current_user.order.state == 'open'
+		      render 'store_closed'
+    end
+  end
 
 end

@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_filter :authenticate_user!, :except => :index
+  before_filter :sale_enabled
 
   def index
     if user_signed_in?
@@ -35,6 +36,14 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       format.js
+    end
+  end
+  
+  private
+
+  def sale_enabled
+    if Settings.sale_enabled == false
+      render 'store_closed'
     end
   end
 end
