@@ -4,17 +4,16 @@
 
 - @items.each do |item|
 	%hr
-	.row-fluid
-		.span6
-			.pull-right
-				= image_tag item.photo_url, :class => 'img-rounded'
-		.span6
+	.row
+		.span5.offset2
+			= image_tag item.photo_url, :class => "right-img"
+		.span5
 			%h2= item.name
 			%p= number_to_currency(item.price)
 			%p= item.description
 			= add_apple_action(item, current_user.order)
 			%div{:class => "flash-item", :id => "flash-item-#{item.id}"}
-		
+	
 .footer.well
 	%h1 Done shopping?
 	%p= link_to "View your cart", my_orders_path

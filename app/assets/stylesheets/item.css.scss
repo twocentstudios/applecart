@@ -5,3 +5,9 @@
 .flash-item {
 	margin-top: 20px;
 }
+
+@media (min-width: 768px) {
+	.right-img {
+		float: right;
+	}	
+}
