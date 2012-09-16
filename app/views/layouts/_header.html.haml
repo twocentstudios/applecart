@@ -10,7 +10,7 @@
 						%li= link_to "Cart", my_orders_path
 						- if current_user.is_admin?
 							%li.divider-vertical
-							%li= link_to "Admin", dashboard_admin_index_path
+							%li= link_to "Admin", admin_dashboard_path
 							%li= link_to "All Orders", orders_path
 				%ul.sessions.nav.pull-right
 					- if user_signed_in?
