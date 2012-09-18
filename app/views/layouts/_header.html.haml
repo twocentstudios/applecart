@@ -8,6 +8,7 @@
 						%li.divider-vertical
 						%li= link_to "Apples", items_path
 						%li= link_to "Cart", my_orders_path
+						%li= link_to 'Donate', "http://main.acsevents.org/site/TR/MakingStridesAgainstBreastCancer/MSABCFY13IL?px=12783188&pg=personal&fr_id=47487"
 						- if current_user.is_admin?
 							%li.divider-vertical
 							%li= link_to "Admin", admin_dashboard_path
