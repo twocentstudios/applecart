@@ -86,7 +86,7 @@ class Order < ActiveRecord::Base
   end
 
   def self.all_non_empty
-    self.non_empty(Order.all)
+    self.non_empty(Order.includes(:user).order("users.name ASC"))
   end
 
   def self.open
