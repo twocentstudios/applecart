@@ -48,7 +48,7 @@ module AdminHelper
 		user_array.each do |user|
 			all_emails << "\"#{user.name}\" <#{user.email}>,"
 		end
-		all_emails[-1] = ""
+		all_emails[-1] = "" if all_emails.present?
 		return all_emails
 	end
 end
