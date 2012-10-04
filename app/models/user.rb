@@ -22,22 +22,22 @@ class User < ActiveRecord::Base
   end
 
   def self.users_with_open_order
-    User.includes(:order).where('orders.state == ?', "open")
+    User.includes(:order).where('orders.state = ?', "open")
   end
 
   def self.users_with_processing_order
-    User.includes(:order).where('orders.state == ?', "processing")
+    User.includes(:order).where('orders.state = ?', "processing")
   end
 
   def self.users_with_unpaid_processing_order
-    User.includes(:order).where('orders.state == ? AND orders.paid == ?', "processing", false)
+    User.includes(:order).where('orders.state = ? AND orders.paid = ?', "processing", false)
   end
 
   def self.users_with_paid_processing_order
-    User.includes(:order).where('orders.state == ? AND orders.paid == ?', "processing", true)
+    User.includes(:order).where('orders.state = ? AND orders.paid = ?', "processing", true)
   end
 
   def self.users_with_delivered_order
-    User.includes(:order).where('orders.state == ?', "delivered")
+    User.includes(:order).where('orders.state = ?', "delivered")
   end
 end
