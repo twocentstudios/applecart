@@ -64,6 +64,29 @@
 						%td= item.total
 	.span4
 		%h2
+			%strong Email Users
+		%table.table
+			%tbody
+				%tr
+					%td All Users
+					%td= mail_to_all
+				%tr
+					%td Users with Open Orders
+					%td= mail_to_open
+				%tr
+					%td Users with Processing Orders
+					%td= mail_to_processing 
+				%tr
+					%td Users with Unpaid Processing Orders
+					%td= mail_to_unpaid_processing
+				%tr
+					%td Users with Paid Processing Orders
+					%td= mail_to_paid_processing
+				%tr
+					%td Users with Delivered Orders
+					%td= mail_to_delivered
+	.span4
+		%h2
 			%strong Site Status
 		%h4.well
 			Sale is currently
