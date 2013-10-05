@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -40,7 +40,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem "devise"
+gem "devise", "~> 2.2.4"
 gem "easy_roles"
 gem "high_voltage"
 gem "compass-rails"
@@ -58,4 +58,4 @@ gem "country_select"
 gem "bootstrap-sass", "~> 2.1.0.0" # "~> 2.0.4.1"
 gem "thin", :group => ["development", "test", "production"]
 gem 'quiet_assets', :group => :development
-gem 'ledermann-rails-settings', :require => 'rails-settings'
+gem 'ledermann-rails-settings', "~> 1.2.1", :require => 'rails-settings'
